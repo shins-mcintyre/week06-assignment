@@ -5,58 +5,53 @@ import Thumbnail from "./Thumbnail";
 import LargeImage from "./LargeImage";
 import NavButton from "./NavButton";
 
-export default function Gallery() {
-  // STATE
-  // - variable to store API image data
-  // - variable to store current image
+export default function Gallery({ searchTerm }) {
+  // STATE -------
 
-  // photos[]        → source of truth (API data)
-  // currentIndex   → which photo is selected
-  // selectedPhoto  → derived from photos[currentIndex]
+  // photos[] -> API data
   const [photos, setPhotos] = useState([]);
+  // currentIndex -> which photo is selected
   const [currentIndex, setCurrentIndex] = useState(0);
+  // selectedPhoto -> derived from photos[currentIndex]
   const selectedPhoto = photos[currentIndex];
 
-  // FUNCTIONS (EVENT HANDLERS)
-  // - when a user clicks an image
-  // - when a user presses a button that should switch the image (left and right)
+  // FUNCTIONS (EVENT HANDLERS) -------
   function handleThumbnailClick(index) {
     // console.log("the Thumbnail Click function works", photo.id);
     setCurrentIndex(index);
   }
 
-  // function handleNextButton() {
-  //   setSelectedPhoto(selectedPhoto + 1);
-  // }
-
   function handleNextButton() {
     setCurrentIndex((i) => (i + 1) % photos.length);
   }
-
-  // function handlePrevButton() {
-  //   setSelectedPhoto(selectedPhoto - 1);
-  // }
 
   function handlePrevButton() {
     setCurrentIndex((i) => (i - 1 + photos.length) % photos.length);
   }
 
-  // EFFECTS
+  // EFFECTS -------
   // - fetch data from the API
   // - once it's fetched, put it in state
-  useEffect(() => {
-    async function getPhotos() {
-      const response = await fetch(import.meta.env.VITE_PHOTO_API_URL);
-      const data = await response.json();
-      setPhotos(data);
-      setCurrentIndex(0);
 
+  useEffect(() => {
+    if (!searchTerm) return;
+
+    async function getPhotos() {
+      const response = await fetch(
+        `https://api.unsplash.com/search/photos?client_id=${
+          import.meta.env.VITE_UNSPLASH_ACCESS_KEY
+        }&query=${encodeURIComponent(searchTerm)}&per_page=25`
+
+        // import.meta.env.VITE_PHOTO_API_URL
+      );
+      const data = await response.json();
+      setPhotos(data.results);
       // auto-select first image
-      // setSelectedPhoto(data[0]);
+      setCurrentIndex(0);
     }
 
     getPhotos();
-  }, []);
+  }, [searchTerm]);
 
   return (
     <>

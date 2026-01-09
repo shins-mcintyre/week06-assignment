@@ -1,11 +1,11 @@
 import NavBar from "./NavBar";
 
-export default function Header() {
+export default function Header({ searchTerm, setSearchTerm }) {
   return (
     <>
       <header>
         <h1>EALAÍN</h1>
-        <NavBar />
+        <NavBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </header>
     </>
   );

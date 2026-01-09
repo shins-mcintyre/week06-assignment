@@ -1,11 +1,9 @@
-import NavButton from "./NavButton";
 import Gallery from "./Gallery";
-import LargeImage from "./LargeImage";
 
-export default function Body() {
+export default function Body({ searchTerm }) {
   return (
-    <div id="body-section">
-      <Gallery />
-    </div>
+    <main>
+      <Gallery searchTerm={searchTerm} />
+    </main>
   );
 }

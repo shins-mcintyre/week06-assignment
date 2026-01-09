@@ -6,7 +6,7 @@ export default function Thumbnail({ photo, onClick }) {
   return (
     <img
       className="thumbnail"
-      src={photo.urls.small}
+      src={photo.urls.thumb}
       alt={photo.alt_description}
       onClick={onClick}
     />

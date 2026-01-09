@@ -38,7 +38,13 @@ I was using the const [photos, setPhotos] and it suggested creating a second con
 
 4. Next step was to add buttons to the large image to navigate through them. For this I followed the code we did in the state workshop that Tim went through with us creating one button component and assigning props to change the handler and text. This was quite seamless however an issue I had was one the 1st and last images the prev/next buttons didn't work respectively - I have set it up so that pressing prev on the 1st image shows the last image and so on, but I thought this was a good opportunity to use conditional rendering, to hide the prev button on the 1st image and hide the next button on the last. If I have time I will do this
 
-5. Conditional rendering of buttons:
+5. The next step I wanted to achieve was the stretch goal of updating images based on the users search - I sed several different resources to try and figure this out - youtube, unsplash documentation, chat gpt, and Bertie - and eventually I got it working. The most difficulty I had was figuring out how to update the API key properly which Bertie helped with
+
+6. Conditional rendering of buttons:
+
+7. Adding extra styles
+
+8. Accessibility/responsiveness
 
 ### Required
 
