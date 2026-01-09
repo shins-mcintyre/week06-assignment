@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Thumbnail from "./Thumbnail";
 import LargeImage from "./LargeImage";
+import NavButton from "./NavButton";
 
 export default function Gallery() {
   // STATE
@@ -17,6 +18,14 @@ export default function Gallery() {
   function handleThumbnailClick(photo) {
     // console.log("the Thumbnail Click function works", photo.id);
     setSelectedPhoto(photo);
+  }
+
+  function handleNextButton() {
+    setSelectedPhoto(selectedPhoto + 1);
+  }
+
+  function handlePrevButton() {
+    setSelectedPhoto(selectedPhoto - 1);
   }
 
   // EFFECTS
@@ -48,7 +57,21 @@ export default function Gallery() {
         ))}
       </div>
 
-      <LargeImage photo={selectedPhoto} />
+      <div className="large-image-container">
+        <LargeImage photo={selectedPhoto} />
+
+        <NavButton
+          className="next-button"
+          handler={handleNextButton}
+          text=">"
+        />
+
+        <NavButton
+          className="prev-button"
+          handler={handlePrevButton}
+          text="<"
+        />
+      </div>
     </>
   );
 }

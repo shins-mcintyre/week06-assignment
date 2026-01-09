@@ -34,7 +34,11 @@ Please also provide an assignment reflection in your project README.md file.
 
 3. Friday morning it is time to add some logic - the first thing was to get the onClick working on the thumbnails. I knew this would be hard, as I felt I only partly grasped these concepts during the week. So I read back over the workshops, and my workshop code, to try and figure out the best way to do this. After a lot of trial and error, I managed to at least get the thumbnail click to console log a message of which photo id was clicked. Then had to go back to the lessons to figure out the state/rendering to actually get the image clicked to show. The way I tried it was not working, so I eventually pasted my code in chat gpt and I was really close but it explained exactly where I was going wrong:
 
-I was using the const [photos, setPhotos] and it suggested creating a second const [selectedPhoto, setSelectedPhoto]- it said that photos is a list of all images while selectedPhoto is the variable for the currently displayed image, and by using photos in this function it would overwrite photos. Perhaps this is not in fact the best way to do things, but I wanted to try it and see if it worked and return to it if I had time
+I was using the const [photos, setPhotos] and it suggested creating a second const [selectedPhoto, setSelectedPhoto]- it said that photos is a list of all images while selectedPhoto is the variable for the currently displayed image, and by using photos in this function it would overwrite photos. Perhaps this is not in fact the best way to do things, but I wanted to try it and see if it worked and return to it if I had time (it did work!)
+
+4. Next step was to add buttons to the large image to navigate through them. For this I followed the code we did in the state workshop that Tim went through with us creating one button component and assigning props to change the handler and text. This was quite seamless however an issue I had was one the 1st and last images the prev/next buttons didn't work respectively - I could have set it up so that pressing prev on the 1st image shows the last image and so on, but I thought this was a good opportunity to use conditional rendering, to hid the prev button on the 1st image and hide the next button on the last
+
+5. Conditional rendering of buttons:
 
 ### Required
 

@@ -114,7 +114,7 @@ h2 {
   grid-template-columns: repeat(5, 1fr);
   /* grid-template-rows: repeat(3, 1fr); */
   gap: 12px;
-  background-color: pink;
+  background-color: rgb(219, 216, 202);
   border-radius: 12px;
   padding: 12px;
 }
