@@ -13,14 +13,22 @@ import SecondHeader from "./components/SecondHeader";
 function App() {
   // app.jsx is parent so needs to own the searchTerm state to be able to pass it from header to gallery
   // searchTerm -> for the search bar
-  const [searchTerm, setSearchTerm] = useState("art");
+  const [searchTerm, setSearchTerm] = useState("paintings");
+  const [inputValue, setInputValue] = useState("");
 
   return (
     <>
-      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <SecondHeader />
-      <Body searchTerm={searchTerm} />
-      <Footer />
+      <body>
+        <Header
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
+        <SecondHeader />
+        <Body searchTerm={searchTerm} />
+        <Footer />
+      </body>
     </>
   );
 }
