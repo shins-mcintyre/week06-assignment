@@ -1,9 +1,9 @@
 export default function Footer() {
   return (
     <footer>
-      <p class="company-name">Company Name</p>
+      <p className="company-name">Company Name</p>
       <a href="#">Contact</a>
-      <div class="social-media">
+      <div className="social-media">
         <img
           src="/logos/fb_logo.png"
           alt="Facebook link"

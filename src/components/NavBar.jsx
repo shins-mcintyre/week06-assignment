@@ -2,9 +2,12 @@ export default function NavBar() {
   return (
     <>
       <nav>
-        <a href="#">About</a>
-        <a href="#">Explore</a>
-        <input type="text" placeholder="Search.."></input>
+        <input type="text" placeholder="EXPLORE MORE.."></input>
+        <div className="burger">
+          <div id="bar"></div>
+          <div id="bar"></div>
+          <div id="bar"></div>
+        </div>
       </nav>
     </>
   );

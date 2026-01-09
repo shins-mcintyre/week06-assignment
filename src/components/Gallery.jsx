@@ -2,12 +2,22 @@
 
 import { useState, useEffect } from "react";
 import Thumbnail from "./Thumbnail";
+import LargeImage from "./LargeImage";
 
 export default function Gallery() {
   // STATE
   // - variable to store API image data
   // - variable to store current image
   const [photos, setPhotos] = useState([]);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  // FUNCTIONS (EVENT HANDLERS)
+  // - when a user clicks an image
+  // - when a user presses a button that should switch the image (left and right)
+  function handleThumbnailClick(photo) {
+    // console.log("the Thumbnail Click function works", photo.id);
+    setSelectedPhoto(photo);
+  }
 
   // EFFECTS
   // - fetch data from the API
@@ -17,23 +27,28 @@ export default function Gallery() {
       const response = await fetch(import.meta.env.VITE_PHOTO_API_URL);
       const data = await response.json();
       setPhotos(data);
+
+      // auto-select first image
+      setSelectedPhoto(data[0]);
     }
 
     getPhotos();
   }, []);
 
-  // FUNCTIONS (EVENT HANDLERS)
-  // - when a user clicks an image
-  // - when a user presses a button that should switch the image (left and right)
-
   return (
     <>
       {/* TODO: CHANGE THE STYLING OF THE GALLERY */}
-      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+      <div id="gallery">
         {photos.map((photo) => (
-          <Thumbnail key={photo.id} photo={photo} />
+          <Thumbnail
+            key={photo.id}
+            photo={photo}
+            onClick={() => handleThumbnailClick(photo)}
+          />
         ))}
       </div>
+
+      <LargeImage photo={selectedPhoto} />
     </>
   );
 }

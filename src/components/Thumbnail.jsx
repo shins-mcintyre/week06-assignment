@@ -1,13 +1,14 @@
 // THUMBNAIL should display one image, receive data via props and handle clicks
 // use jsx inside .map()
+import LargeImage from "./LargeImage";
 
-export default function Thumbnail({ photo }) {
+export default function Thumbnail({ photo, onClick }) {
   return (
     <img
-      //   key={photo.id}
+      className="thumbnail"
       src={photo.urls.small}
       alt={photo.alt_description}
-      width="200"
+      onClick={onClick}
     />
   );
 }
