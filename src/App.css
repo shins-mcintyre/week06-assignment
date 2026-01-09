@@ -94,42 +94,77 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  /* align-items: start; */
   padding: 0 2rem;
-  /* align-items: stretch; */
 }
 
 .thumbnail {
   width: 100%;
   height: 100%;
-  /* aspect-ratio: 1/1; */
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
 }
 
-#gallery {
+.gallery {
   display: grid;
   height: 420px;
   grid-template-columns: repeat(5, 1fr);
-  /* grid-template-rows: repeat(3, 1fr); */
   gap: 12px;
   background-color: rgb(219, 216, 202);
   border-radius: 12px;
   padding: 12px;
 }
 
-#gallery > * {
+.gallery > * {
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
-#frame {
+.frame {
   width: 100%;
   height: 420px;
-  /* aspect-ratio: 1/1; */
-  background-color: rgb(200, 223, 215);
+  /* background-color: rgb(200, 223, 215); */
   border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  /* z-index: 1; */
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.large-image-container {
+  position: relative;
+  width: 100%;
+  height: 420px;
+}
+
+/* **** BUTTONS ****** */
+
+.nav-button-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: transparent;
+  /* pointer-events: none; */
+  z-index: 2;
+}
+
+.nav-button-container button {
+  border: 1px solid rgba(255, 255, 255);
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, 0.418);
+  color: rgba(255, 255, 255);
+  padding: 6px 10px;
+  z-index: 100;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 @media (max-width: 768px) {
@@ -165,30 +200,4 @@ footer {
 #x-logo {
   max-height: 30px;
   cursor: pointer;
-}
-
-/* **** BUTTONS ****** */
-button {
-  border: 1px solid rgba(255, 255, 255);
-  border-radius: 100%;
-  background-color: rgba(0, 0, 0, 0.418);
-  color: rgba(255, 255, 255);
-  padding: 6px 10px;
-  z-index: 100;
-  cursor: pointer;
-  position: absolute;
-  top: 50vh;
-  right: 5vw;
-}
-
-button#next {
-  position: absolute;
-  top: 50vh;
-  right: 5vw;
-}
-
-button#prev {
-  position: absolute;
-  top: 50vh;
-  left: 5vw;
 }

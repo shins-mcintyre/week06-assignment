@@ -10,7 +10,7 @@ export default function Gallery() {
   // - variable to store API image data
   // - variable to store current image
   const [photos, setPhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [selectedPhoto, setSelectedPhoto] = useState(0);
 
   // FUNCTIONS (EVENT HANDLERS)
   // - when a user clicks an image
@@ -20,12 +20,20 @@ export default function Gallery() {
     setSelectedPhoto(photo);
   }
 
+  // function handleNextButton() {
+  //   setSelectedPhoto(selectedPhoto + 1);
+  // }
+
   function handleNextButton() {
-    setSelectedPhoto(selectedPhoto + 1);
+    setSelectedPhoto((i) => (i + 1) % photos.length);
   }
 
+  // function handlePrevButton() {
+  //   setSelectedPhoto(selectedPhoto - 1);
+  // }
+
   function handlePrevButton() {
-    setSelectedPhoto(selectedPhoto - 1);
+    setSelectedPhoto((i) => (i - 1 + photos.length) % photos.length);
   }
 
   // EFFECTS
@@ -44,10 +52,14 @@ export default function Gallery() {
     getPhotos();
   }, []);
 
+  useEffect(() => {
+    setSelectedPhoto(photos[selectedPhoto]);
+  }, [selectedPhoto, photos]);
+
   return (
     <>
       {/* TODO: CHANGE THE STYLING OF THE GALLERY */}
-      <div id="gallery">
+      <div className="gallery">
         {photos.map((photo) => (
           <Thumbnail
             key={photo.id}
@@ -60,17 +72,19 @@ export default function Gallery() {
       <div className="large-image-container">
         <LargeImage photo={selectedPhoto} />
 
-        <NavButton
-          className="next-button"
-          handler={handleNextButton}
-          text=">"
-        />
+        <div className="nav-button-container">
+          <NavButton
+            className="nav-button"
+            handler={handlePrevButton}
+            text="<"
+          />
 
-        <NavButton
-          className="prev-button"
-          handler={handlePrevButton}
-          text="<"
-        />
+          <NavButton
+            className="nav-button"
+            handler={handleNextButton}
+            text=">"
+          />
+        </div>
       </div>
     </>
   );

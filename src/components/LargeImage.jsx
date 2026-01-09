@@ -6,7 +6,7 @@ export default function LargeImage({ photo }) {
   }
 
   return (
-    <div id="frame">
+    <div className="frame">
       <img
         src={photo.urls.regular}
         alt={photo.alt_descrisption}
