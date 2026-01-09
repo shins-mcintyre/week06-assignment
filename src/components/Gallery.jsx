@@ -9,15 +9,20 @@ export default function Gallery() {
   // STATE
   // - variable to store API image data
   // - variable to store current image
+
+  // photos[]        → source of truth (API data)
+  // currentIndex   → which photo is selected
+  // selectedPhoto  → derived from photos[currentIndex]
   const [photos, setPhotos] = useState([]);
-  const [selectedPhoto, setSelectedPhoto] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const selectedPhoto = photos[currentIndex];
 
   // FUNCTIONS (EVENT HANDLERS)
   // - when a user clicks an image
   // - when a user presses a button that should switch the image (left and right)
-  function handleThumbnailClick(photo) {
+  function handleThumbnailClick(index) {
     // console.log("the Thumbnail Click function works", photo.id);
-    setSelectedPhoto(photo);
+    setCurrentIndex(index);
   }
 
   // function handleNextButton() {
@@ -25,7 +30,7 @@ export default function Gallery() {
   // }
 
   function handleNextButton() {
-    setSelectedPhoto((i) => (i + 1) % photos.length);
+    setCurrentIndex((i) => (i + 1) % photos.length);
   }
 
   // function handlePrevButton() {
@@ -33,7 +38,7 @@ export default function Gallery() {
   // }
 
   function handlePrevButton() {
-    setSelectedPhoto((i) => (i - 1 + photos.length) % photos.length);
+    setCurrentIndex((i) => (i - 1 + photos.length) % photos.length);
   }
 
   // EFFECTS
@@ -44,27 +49,23 @@ export default function Gallery() {
       const response = await fetch(import.meta.env.VITE_PHOTO_API_URL);
       const data = await response.json();
       setPhotos(data);
+      setCurrentIndex(0);
 
       // auto-select first image
-      setSelectedPhoto(data[0]);
+      // setSelectedPhoto(data[0]);
     }
 
     getPhotos();
   }, []);
 
-  useEffect(() => {
-    setSelectedPhoto(photos[selectedPhoto]);
-  }, [selectedPhoto, photos]);
-
   return (
     <>
-      {/* TODO: CHANGE THE STYLING OF THE GALLERY */}
       <div className="gallery">
-        {photos.map((photo) => (
+        {photos.map((photo, index) => (
           <Thumbnail
             key={photo.id}
             photo={photo}
-            onClick={() => handleThumbnailClick(photo)}
+            onClick={() => handleThumbnailClick(index)}
           />
         ))}
       </div>
