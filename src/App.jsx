@@ -18,17 +18,15 @@ function App() {
 
   return (
     <>
-      <body>
-        <Header
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-        />
-        <SecondHeader />
-        <Body searchTerm={searchTerm} />
-        <Footer />
-      </body>
+      <Header
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+      />
+      <SecondHeader />
+      <Body searchTerm={searchTerm} />
+      <Footer />
     </>
   );
 }

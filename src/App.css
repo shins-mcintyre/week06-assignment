@@ -263,25 +263,25 @@ footer {
   bottom: 0;
   width: 100%;
   text-align: center;
-  color: white;
+  color: rgb(74, 33, 33);
   padding: 40px;
   display: flex;
   justify-content: space-evenly;
 }
 
 #fb-logo {
-  max-height: 30px;
+  max-height: 20px;
   cursor: pointer;
   padding-right: 10px;
 }
 
 #ig-logo {
-  max-height: 30px;
+  max-height: 20px;
   cursor: pointer;
   padding-right: 10px;
 }
 
 #x-logo {
-  max-height: 30px;
+  max-height: 20px;
   cursor: pointer;
 }
