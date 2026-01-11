@@ -40,11 +40,11 @@ I was using the const [photos, setPhotos] and it suggested creating a second con
 
 5. The next step I wanted to achieve was the stretch goal of updating images based on the users search - I sed several different resources to try and figure this out - youtube, unsplash documentation, chat gpt, and Bertie - and eventually I got it working. The most difficulty I had was figuring out how to update the API key properly which Bertie helped with
 
-6. Conditional rendering of buttons:
+6. Conditional rendering of buttons: ran out of time to get this done
 
-7. Adding extra styles
+7. Adding extra styles - added some hover effects and different sizes for different screens. getting the layout right was difficult for me with a lot of trial and error in the css. I did intend on trying to convert it all to Tailwind for practice but I actaully just ran out of time
 
-8. Accessibility/responsiveness
+8. Accessibility/responsiveness - I tested the keyboard navigation for the page. It works for most elements but not the drop down menu. I tried to figure this out but also ran out of time which is a shame as I wanted to figure out how to make that accessible
 
 ### Required
 

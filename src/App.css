@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+:focus-visible{
+  outline: 3px solid rgb(74, 33, 33);
+  outline-offset: 4px;
+}
 
 html,
 body {
@@ -94,7 +98,8 @@ nav {
   display: inline-block;
 }
 
-.dropdown-menu:hover .dropdown-menu-content {
+.dropdown-menu:hover .dropdown-menu-content,
+.dropdown-menu:focus-within .dropdown-menu-content {
   display: flex;
   flex-direction: column;
   background-color: rgb(160, 134, 134);
@@ -204,6 +209,29 @@ main > * {
 
 .thumbnail:hover {
   opacity: 0.5;
+}
+
+.thumbnail-button{
+  all: unset;
+  display: block;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.thumbnail-button:focus{
+  outline: none;
+}
+
+.thumbnail-button:focus-visible{
+  box-shadow: 0 0 0 4px rgb(74, 33, 33);
+}
+
+.thumbnail-button[aria-pressed="true"] img{
+outline: 3px solid rgb(74, 33, 33)}
+
+.thumbnail-button:focus-visible img{
+  outline: 3px solid rgb(74, 33, 33);
+  outline-offset: 4px;
 }
 
 .gallery {

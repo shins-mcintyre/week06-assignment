@@ -62,6 +62,7 @@ export default function Gallery({ searchTerm }) {
             key={photo.id}
             photo={photo}
             onClick={() => handleThumbnailClick(index)}
+            isSelected={index === currentIndex}
           />
         ))}
       </div>

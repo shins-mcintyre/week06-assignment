@@ -1,6 +1,8 @@
 import Gallery from "./Gallery";
 
 export default function NavBar({ setSearchTerm, inputValue, setInputValue }) {
+
+
   return (
     <>
       <nav>
@@ -19,15 +21,15 @@ export default function NavBar({ setSearchTerm, inputValue, setInputValue }) {
         ></input>
 
         <div className="dropdown-menu">
-          <div className="burger">
+          <div className="burger" aria-haspopup="true" aria-expanded="false" aria-controls="main-menu">
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>
           </div>
-          <div className="dropdown-menu-content">
-            <a href="#">OUR STORY</a>
-            <a href="#">WHERE TO FIND US</a>
-            <a href="#">EXPLORE COLLECTIONS</a>
+          <div className="dropdown-menu-content" id="main-menu" role="menu">
+            <a href="#" role="menuitem">OUR STORY</a>
+            <a href="#" role="menuitem">WHERE TO FIND US</a>
+            <a href="#" role="menuitem">EXPLORE COLLECTIONS</a>
           </div>
         </div>
       </nav>
