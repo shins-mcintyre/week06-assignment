@@ -18,15 +18,17 @@ function App() {
 
   return (
     <>
-      <Header
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-      />
-      <SecondHeader />
-      <Body searchTerm={searchTerm} />
-      <Footer />
+      <div className="app-container">
+        <Header
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
+        <SecondHeader />
+        <Body searchTerm={searchTerm} />
+        <Footer />
+      </div>
     </>
   );
 }

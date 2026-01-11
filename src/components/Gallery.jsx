@@ -55,6 +55,7 @@ export default function Gallery({ searchTerm }) {
 
   return (
     <>
+    <div className="gallery-frame">
       <div className="gallery">
         {photos.map((photo, index) => (
           <Thumbnail
@@ -63,6 +64,7 @@ export default function Gallery({ searchTerm }) {
             onClick={() => handleThumbnailClick(index)}
           />
         ))}
+      </div>
       </div>
 
       <div className="large-image-container">

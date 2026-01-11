@@ -10,9 +10,32 @@
   padding: 0;
 }
 
+
+html,
 body {
   background-color: rgb(242, 239, 226);
   color: rgb(74, 33, 33);
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.body-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .body-container {
+    flex-direction: column;
+  }
 }
 
 /* ****** HEADER ********* */
@@ -155,7 +178,7 @@ h2 {
 
 /* *** BODY***** */
 main {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,9 +186,14 @@ main {
   padding: 0 2rem;
 }
 
+main > * {
+  min-width: 0;
+}
+
 .thumbnail {
   width: 100%;
   height: 100%;
+  aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 6px;
   cursor: pointer;
@@ -180,7 +208,9 @@ main {
 
 .gallery {
   display: grid;
-  height: 420px;
+  height: auto;
+  /* aspect-ratio: 1/1;  */
+  /* max-height: 60vh; */
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
   background-color: rgb(219, 216, 202);
@@ -188,14 +218,21 @@ main {
   padding: 12px;
 }
 
+/* .gallery-frame{
+  aspect-ratio: 1/1;
+  width: 100%;
+  display: flex;
+} */
+
 .gallery > * {
   aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
 .frame {
-  width: 100%;
-  height: 420px;
+  width: 100%; 
+  height: auto;
+  aspect-ratio: 1/1;
   /* background-color: rgb(200, 223, 215); */
   border-radius: 12px;
   overflow: hidden;
@@ -210,9 +247,11 @@ main {
 }
 
 .large-image-container {
-  position: relative;
-  width: 100%;
-  height: 420px;
+  position: relative; 
+  /* width: 100%; */
+  height: auto;
+  aspect-ratio: 1/1;
+  /* max-height: 60vh; */
 }
 
 /* **** BUTTONS ****** */
@@ -254,17 +293,32 @@ main {
   .gallery {
     grid-template-columns: repeat(3 1fr);
   }
-}
+  header{
+    flex-direction: column;
+    align-items: stretch;
+    height: auto;
+    gap: 1rem;
+  }
+  h1{
+    position: static;
+    justify-content: space-between;
+  }
+  nav{
+    /* flex-wrap: wrap; */
+    position: static; 
+    justify-content: space-between;
+
+}}
 
 /******* FOOTER *******/
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  /* left: 0; */
+  bottom: 0; 
   width: 100%;
   text-align: center;
   color: rgb(74, 33, 33);
   padding: 40px;
+  padding-top: 5rem;
   display: flex;
   justify-content: space-evenly;
 }
